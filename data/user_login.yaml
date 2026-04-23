@@ -1,0 +1,124 @@
+# 用户登录测试数据
+test_cases:
+  - name: "密码登录成功"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "13205562371"
+      password: "123456"
+    expected:
+      code: 1000
+      message: "success"
+      data_fields:
+        - token
+        - expire
+        - refreshToken
+        - refreshExpire
+
+  - name: "用户不存在"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "19999999999"
+      password: "123456"
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "密码错误"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "13205562371"
+      password: "wrongpassword"
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "账号为空"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: ""
+      password: "123456"
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "密码为空"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "13205562371"
+      password: ""
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "缺少phone字段"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      password: "123456"
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "缺少password字段"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "13205562371"
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "phone为null"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: null
+      password: "123456"
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "password为null"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "13205562371"
+      password: null
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "phone为10位"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "1320556237"
+      password: "123456"
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "phone为12位"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "132055623711"
+      password: "123456"
+    expected:
+      code: 500
+      message: "账号或密码错误"
+
+  - name: "phone含字母"
+    endpoint: "/app/user/login/password"
+    method: "POST"
+    payload:
+      phone: "1320556237a"
+      password: "123456"
+    expected:
+      code: 500
+      message: "账号或密码错误"

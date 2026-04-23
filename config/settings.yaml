@@ -1,0 +1,17 @@
+# 环境配置
+base_url: "https://mall.dusksnow.top"
+
+# 测试账号
+test_account:
+  phone: "13205562371"
+  password: "123456"
+
+# 日志配置
+log:
+  level: "DEBUG"
+  print_request: true
+  print_response: true
+
+# Token 配置
+token:
+  refresh_before_expire: 300  # 提前5分钟刷新（单位：秒）

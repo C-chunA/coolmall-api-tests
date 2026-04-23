@@ -1,0 +1,505 @@
+# 收货地址测试数据
+test_cases:
+  - name: "添加收货地址成功"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1000
+      message: "success"
+      data_fields:
+        - id
+
+  # ========== 缺少字段测试 ==========
+  - name: "添加收货地址-缺少联系人"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-缺少手机号"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-缺少省份"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-缺少城市"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-缺少区县"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-缺少详细地址"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-缺少是否默认"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+    expected:
+      code: 1001
+
+  # ========== 字段为空值测试 ==========
+  - name: "添加收货地址-联系人为空"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: ""
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-手机号为空"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: ""
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-省份为空"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: ""
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-城市为空"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: ""
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-区县为空"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: ""
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-详细地址为空"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: ""
+      isDefault: false
+    expected:
+      code: 1001
+
+  # ========== 字段为null测试 ==========
+  - name: "添加收货地址-联系人为null"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: null
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-手机号为null"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: null
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-省份为null"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: null
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-城市为null"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: null
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-区县为null"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: null
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-详细地址为null"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: null
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-是否默认为null"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: null
+    expected:
+      code: 1001
+
+  # ========== 格式错误测试 ==========
+  - name: "添加收货地址-手机号10位"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "1380013800"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-手机号12位"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "138001380000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-手机号含字母"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "1380013800a"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-isDefault传字符串"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: "true"
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-联系人超长"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人测试联系人测试联系人测试联系人测试联系人测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "测试街道123号"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "添加收货地址-地址含特殊字符"
+    endpoint: "/app/user/address/add"
+    method: "POST"
+    payload:
+      contact: "测试联系人"
+      phone: "13800138000"
+      province: "江苏省"
+      city: "南京市"
+      district: "鼓楼区"
+      address: "<script>alert('xss')</script>"
+      isDefault: false
+    expected:
+      code: 1001
+
+  - name: "查询收货地址列表"
+    endpoint: "/app/user/address/page"
+    method: "POST"
+    payload:
+      page: 1
+      size: 10
+    expected:
+      code: 1000
+      message: "success"
+
+  - name: "更新收货地址"
+    endpoint: "/app/user/address/update"
+    method: "POST"
+    payload:
+      id: 1
+      contact: "更新后的联系人"
+      phone: "13900139000"
+      province: "江苏省"
+      city: "南京市"
+      district: "玄武区"
+      address: "更新后的地址456号"
+      isDefault: true
+    expected:
+      code: 1000
+      message: "success"
+
+  # ========== 删除收货地址 - 参数校验 ==========
+  - name: "删除收货地址-缺少id"
+    endpoint: "/app/user/address/delete"
+    method: "POST"
+    payload: {}
+    expected:
+      code: 500
+      message: "ids 参数错误"
+
+  - name: "删除收货地址-id为空"
+    endpoint: "/app/user/address/delete"
+    method: "POST"
+    payload:
+      id: ""
+    expected:
+      code: 500
+      message: "ids 参数错误"
+
+  - name: "删除收货地址-id为null"
+    endpoint: "/app/user/address/delete"
+    method: "POST"
+    payload:
+      id: null
+    expected:
+      code: 500
+      message: "ids 参数错误"
+
+  - name: "删除收货地址-id不存在"
+    endpoint: "/app/user/address/delete"
+    method: "POST"
+    payload:
+      id: 999999
+    expected:
+      code: 500
+      message: "ids 参数错误"
+
+  - name: "删除收货地址-id为字符串"
+    endpoint: "/app/user/address/delete"
+    method: "POST"
+    payload:
+      id: "abc"
+    expected:
+      code: 500
+      message: "ids 参数错误"
+
+  - name: "删除收货地址-id为负数"
+    endpoint: "/app/user/address/delete"
+    method: "POST"
+    payload:
+      id: -1
+    expected:
+      code: 500
+      message: "ids 参数错误"
+
+  - name: "删除收货地址-id为0"
+    endpoint: "/app/user/address/delete"
+    method: "POST"
+    payload:
+      id: 0
+    expected:
+      code: 500
+      message: "ids 参数错误"
+
+  - name: "删除收货地址-id为小数"
+    endpoint: "/app/user/address/delete"
+    method: "POST"
+    payload:
+      id: 1.5
+    expected:
+      code: 500
+      message: "ids 参数错误"
+
+  - name: "查询地址信息"
+    endpoint: "/app/user/address/info"
+    method: "GET"
+    payload:
+      id: 1
+    expected:
+      code: 1000
+      message: "success"
+      data_fields:
+        - id
+        - contact
+        - phone
+        - address
+
+  - name: "查询地址列表"
+    endpoint: "/app/user/address/list"
+    method: "POST"
+    expected:
+      code: 1000
+      message: "success"
+
+  - name: "查询默认地址"
+    endpoint: "/app/user/address/default"
+    method: "GET"
+    expected:
+      code: 1000
+      message: "success"

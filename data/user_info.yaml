@@ -1,0 +1,45 @@
+# 用户信息测试数据
+test_cases:
+  - name: "获取用户个人信息成功"
+    endpoint: "/app/user/info/person"
+    method: "GET"
+    expected:
+      code: 1000
+      message: "success"
+      data_fields:
+        - id
+        - phone
+        - nickName
+        - avatarUrl
+        - gender
+        - status
+        - loginType
+        - createTime
+        - updateTime
+
+  - name: "获取用户信息-无Token"
+    endpoint: "/app/user/info/person"
+    method: "GET"
+    headers:
+      Authorization: ""
+    expected:
+      code: 401
+      message: "未登录"
+
+  - name: "获取用户信息-Token格式错误"
+    endpoint: "/app/user/info/person"
+    method: "GET"
+    headers:
+      Authorization: "invalid_token"
+    expected:
+      code: 401
+      message: "未登录"
+
+  - name: "获取用户信息-Token过期"
+    endpoint: "/app/user/info/person"
+    method: "GET"
+    headers:
+      Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MDAwMDAwMDAsImNyZWF0ZWQiOjE1MDAwMDAwMDAsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjoxLCJpc1JlZnJlc2giOmZhbHNlfQ.invalid"
+    expected:
+      code: 401
+      message: "未登录"

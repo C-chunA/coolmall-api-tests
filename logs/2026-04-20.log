@@ -1,0 +1,390 @@
+[2026-04-20 21:01:21.292] [INFO] 
+[2026-04-20 21:01:21.292] [INFO] ################################################################################
+[2026-04-20 21:01:21.292] [INFO] # [测试文件 / Test File] Test Session
+[2026-04-20 21:01:21.292] [INFO] ################################################################################
+[2026-04-20 21:01:21.311] [INFO] 
+[2026-04-20 21:01:21.311] [INFO] ================================================================================
+[2026-04-20 21:01:21.311] [INFO] [测试开始 / Test Start] test_user_address - test_add_address_success
+[2026-04-20 21:01:21.311] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:21.481] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/add
+[2026-04-20 21:01:21.481] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:21.482] [DEBUG]   [请求体 / Payload] {'contact': '测试联系人', 'phone': '13800138000', 'province': '江苏省', 'city': '南京市', 'district': '鼓楼区', 'address': '测试街道123号', 'isDefault': False}
+[2026-04-20 21:01:21.609] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:21.610] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"id": 1421}, "message": "success"}
+[2026-04-20 21:01:21.610] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:01:21.610] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.id]: 通过 / Passed
+[2026-04-20 21:01:21.612] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/delete
+[2026-04-20 21:01:21.612] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:21.612] [DEBUG]   [请求体 / Payload] {'id': 1421}
+[2026-04-20 21:01:21.645] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:21.645] [DEBUG]   [响应体 / Body] {"code": 500, "message": "ids 参数错误"}
+[2026-04-20 21:01:21.646] [INFO] [测试失败 / Test Failed] test_add_address_success (0.334s)
+[2026-04-20 21:01:21.646] [INFO] ================================================================================
+[2026-04-20 21:01:21.646] [INFO] 
+[2026-04-20 21:01:21.648] [INFO] 
+[2026-04-20 21:01:21.648] [INFO] ================================================================================
+[2026-04-20 21:01:21.648] [INFO] [测试开始 / Test Start] test_user_address - test_add_address_missing_contact
+[2026-04-20 21:01:21.648] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:21.653] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/add
+[2026-04-20 21:01:21.653] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:21.654] [DEBUG]   [请求体 / Payload] {'phone': '13800138000', 'province': '江苏省', 'city': '南京市', 'district': '鼓楼区', 'address': '测试街道123号', 'isDefault': False}
+[2026-04-20 21:01:21.781] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:21.781] [DEBUG]   [响应体 / Body] {"code": 1001, "message": "请求方式不正确或服务出现异常"}
+[2026-04-20 21:01:21.781] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:01:21.783] [INFO] [测试失败 / Test Failed] test_add_address_missing_contact (0.135s)
+[2026-04-20 21:01:21.783] [INFO] ================================================================================
+[2026-04-20 21:01:21.783] [INFO] 
+[2026-04-20 21:01:21.785] [INFO] 
+[2026-04-20 21:01:21.785] [INFO] ================================================================================
+[2026-04-20 21:01:21.785] [INFO] [测试开始 / Test Start] test_user_address - test_get_address_page
+[2026-04-20 21:01:21.785] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:21.790] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/page
+[2026-04-20 21:01:21.790] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:21.790] [DEBUG]   [请求体 / Payload] {'page': 1, 'size': 10}
+[2026-04-20 21:01:21.907] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:21.907] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"list": [{"id": 1421, "createTime": "2026-04-20 21:01:21", "updateTime": "2026-04-20 21:01:21", "userId": 320, "contact": "测试联系人", "phone": "13800138000", "province": "江苏省", "city": "南京市", "district": "鼓楼区", "address": "测试街道123号", "isDefault": false}, {"id": 391, "createTime": "2026-01-16 16:42:33", "updateTime": "2026-03-06 08:00:07", "userId": 320, "contact": "测试用户", "phone": "13800138000", "province": "广东省", "city": "广州市", "district": "天河区", "address": "天河路1号", "isDefault": false}, {"id": 136, "createTime": "2026-01-06 16:43:54", "updateTime": "2026-03-06 08:00:07", "userId": 320, "contact": "Joker", "phone": "18666666666", "province": "安徽省", "city": "滁州市", "district": "凤阳县", "address": "我是详细地址", "isDefault": false}], "pagination": {"total": 3, "size": 10, "page": 1}}, "message": "success"}
+[2026-04-20 21:01:21.907] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:01:21.908] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.list]: 通过 / Passed
+[2026-04-20 21:01:21.908] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.pagination.total]: 通过 / Passed
+[2026-04-20 21:01:21.909] [INFO] [测试失败 / Test Failed] test_get_address_page (0.124s)
+[2026-04-20 21:01:21.909] [INFO] ================================================================================
+[2026-04-20 21:01:21.909] [INFO] 
+[2026-04-20 21:01:21.911] [INFO] 
+[2026-04-20 21:01:21.911] [INFO] ================================================================================
+[2026-04-20 21:01:21.911] [INFO] [测试开始 / Test Start] test_user_address - test_update_address
+[2026-04-20 21:01:21.911] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:21.916] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/add
+[2026-04-20 21:01:21.916] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:21.916] [DEBUG]   [请求体 / Payload] {'contact': '测试联系人', 'phone': '13800138000', 'province': '江苏省', 'city': '南京市', 'district': '鼓楼区', 'address': '测试街道123号', 'isDefault': False}
+[2026-04-20 21:01:22.060] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.060] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"id": 1422}, "message": "success"}
+[2026-04-20 21:01:22.061] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/update
+[2026-04-20 21:01:22.061] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.061] [DEBUG]   [请求体 / Payload] {'contact': '更新后的联系人', 'phone': '13900139000', 'province': '江苏省', 'city': '南京市', 'district': '玄武区', 'address': '更新后的地址456号', 'isDefault': True, 'id': 1422}
+[2026-04-20 21:01:22.103] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.103] [DEBUG]   [响应体 / Body] {"code": 1000, "message": "success"}
+[2026-04-20 21:01:22.103] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:01:22.108] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/delete
+[2026-04-20 21:01:22.109] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.109] [DEBUG]   [请求体 / Payload] {'id': 1422}
+[2026-04-20 21:01:22.139] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.139] [DEBUG]   [响应体 / Body] {"code": 500, "message": "ids 参数错误"}
+[2026-04-20 21:01:22.140] [INFO] [测试失败 / Test Failed] test_update_address (0.228s)
+[2026-04-20 21:01:22.140] [INFO] ================================================================================
+[2026-04-20 21:01:22.140] [INFO] 
+[2026-04-20 21:01:22.142] [INFO] 
+[2026-04-20 21:01:22.142] [INFO] ================================================================================
+[2026-04-20 21:01:22.142] [INFO] [测试开始 / Test Start] test_user_address - test_delete_address
+[2026-04-20 21:01:22.142] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:22.148] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/add
+[2026-04-20 21:01:22.148] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.148] [DEBUG]   [请求体 / Payload] {'contact': '测试联系人', 'phone': '13800138000', 'province': '江苏省', 'city': '南京市', 'district': '鼓楼区', 'address': '测试街道123号', 'isDefault': False}
+[2026-04-20 21:01:22.276] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.276] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"id": 1423}, "message": "success"}
+[2026-04-20 21:01:22.277] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/delete
+[2026-04-20 21:01:22.277] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.277] [DEBUG]   [请求体 / Payload] {'ids': [1423]}
+[2026-04-20 21:01:22.319] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.319] [DEBUG]   [响应体 / Body] {"code": 1000, "message": "success"}
+[2026-04-20 21:01:22.319] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:01:22.321] [INFO] [测试失败 / Test Failed] test_delete_address (0.178s)
+[2026-04-20 21:01:22.321] [INFO] ================================================================================
+[2026-04-20 21:01:22.321] [INFO] 
+[2026-04-20 21:01:22.323] [INFO] 
+[2026-04-20 21:01:22.323] [INFO] ================================================================================
+[2026-04-20 21:01:22.323] [INFO] [测试开始 / Test Start] test_user_info - test_get_user_info_success
+[2026-04-20 21:01:22.323] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:22.326] [INFO] [请求 / Request] GET https://mall.dusksnow.top/app/user/info/person
+[2026-04-20 21:01:22.326] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.432] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.432] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"unionid": null, "avatarUrl": null, "nickName": "01zFoOHR", "phone": "13205562371", "gender": 0, "status": 1, "loginType": "0", "qqOpenId": null, "id": 320, "createTime": "2026-01-05 16:33:17", "updateTime": "2026-01-05 16:33:17"}, "message": "success"}
+[2026-04-20 21:01:22.432] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:01:22.432] [INFO] [断言 / Assertion] 响应消息 / Response Message: 通过 / Passed
+[2026-04-20 21:01:22.432] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.id]: 通过 / Passed
+[2026-04-20 21:01:22.432] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.phone]: 通过 / Passed
+[2026-04-20 21:01:22.432] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.nickName]: 通过 / Passed
+[2026-04-20 21:01:22.432] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.avatarUrl]: 通过 / Passed
+[2026-04-20 21:01:22.432] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.gender]: 通过 / Passed
+[2026-04-20 21:01:22.433] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.status]: 通过 / Passed
+[2026-04-20 21:01:22.433] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.loginType]: 通过 / Passed
+[2026-04-20 21:01:22.433] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.createTime]: 通过 / Passed
+[2026-04-20 21:01:22.433] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.updateTime]: 通过 / Passed
+[2026-04-20 21:01:22.434] [INFO] [测试失败 / Test Failed] test_get_user_info_success (0.111s)
+[2026-04-20 21:01:22.434] [INFO] ================================================================================
+[2026-04-20 21:01:22.434] [INFO] 
+[2026-04-20 21:01:22.436] [INFO] 
+[2026-04-20 21:01:22.436] [INFO] ================================================================================
+[2026-04-20 21:01:22.436] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_success
+[2026-04-20 21:01:22.436] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:22.442] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:01:22.442] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.442] [DEBUG]   [请求体 / Payload] {'phone': '13205562371', 'password': '123456'}
+[2026-04-20 21:01:22.568] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.568] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzkyODIwODIsImNyZWF0ZWQiOjE3NzY2OTAwODIsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozMjAsImlzUmVmcmVzaCI6ZmFsc2V9.Sd1s5rCSLE0PhBspqJVTuoVCGgAyuPo9SXVjibolvZg", "expire": 2592000, "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3ODQ0NjYwODIsImNyZWF0ZWQiOjE3NzY2OTAwODIsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozMjAsImlzUmVmcmVzaCI6dHJ1ZX0.pNj-HlCCzggfAwx5-yDNAwg-LSR2zg-6P5FjK4YoRMw", "refreshExpire": 7776000}, "message": "success"}
+[2026-04-20 21:01:22.568] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:01:22.568] [INFO] [断言 / Assertion] 响应消息 / Response Message: 通过 / Passed
+[2026-04-20 21:01:22.568] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.token]: 通过 / Passed
+[2026-04-20 21:01:22.570] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.expire]: 通过 / Passed
+[2026-04-20 21:01:22.571] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.refreshToken]: 通过 / Passed
+[2026-04-20 21:01:22.571] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.refreshExpire]: 通过 / Passed
+[2026-04-20 21:01:22.572] [INFO] [测试失败 / Test Failed] test_login_password_success (0.136s)
+[2026-04-20 21:01:22.572] [INFO] ================================================================================
+[2026-04-20 21:01:22.572] [INFO] 
+[2026-04-20 21:01:22.581] [INFO] 
+[2026-04-20 21:01:22.581] [INFO] ================================================================================
+[2026-04-20 21:01:22.581] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_user_not_exist
+[2026-04-20 21:01:22.581] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:22.590] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:01:22.591] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.591] [DEBUG]   [请求体 / Payload] {'phone': '19999999999', 'password': '123456'}
+[2026-04-20 21:01:22.712] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.712] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzkyODIwODIsImNyZWF0ZWQiOjE3NzY2OTAwODIsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozNzgsImlzUmVmcmVzaCI6ZmFsc2V9.zmuRTTn0h9Y-U9A_7S6TOQICz2a5ym1NfGGoGkG_PfY", "expire": 2592000, "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3ODQ0NjYwODIsImNyZWF0ZWQiOjE3NzY2OTAwODIsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozNzgsImlzUmVmcmVzaCI6dHJ1ZX0.-hAXJNCjhLwoX2mpMngzbSUBbXJp9jbxpQpBGXcX4Tk", "refreshExpire": 7776000}, "message": "success"}
+[2026-04-20 21:01:22.712] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 失败 / Failed
+[2026-04-20 21:01:22.712] [INFO]   [期望值 / Expected] 1001
+[2026-04-20 21:01:22.712] [INFO]   [实际值 / Actual] 1000
+[2026-04-20 21:01:22.750] [INFO] [测试失败 / Test Failed] test_login_password_user_not_exist (0.169s)
+[2026-04-20 21:01:22.750] [INFO] ================================================================================
+[2026-04-20 21:01:22.751] [INFO] 
+[2026-04-20 21:01:22.753] [INFO] 
+[2026-04-20 21:01:22.753] [INFO] ================================================================================
+[2026-04-20 21:01:22.754] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_wrong_password
+[2026-04-20 21:01:22.754] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:22.761] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:01:22.761] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.761] [DEBUG]   [请求体 / Payload] {'phone': '13205562371', 'password': 'wrongpassword'}
+[2026-04-20 21:01:22.913] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:22.914] [DEBUG]   [响应体 / Body] {"code": 1000, "data": null, "message": "success"}
+[2026-04-20 21:01:22.914] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 失败 / Failed
+[2026-04-20 21:01:22.914] [INFO]   [期望值 / Expected] 1001
+[2026-04-20 21:01:22.914] [INFO]   [实际值 / Actual] 1000
+[2026-04-20 21:01:22.924] [INFO] [测试失败 / Test Failed] test_login_password_wrong_password (0.170s)
+[2026-04-20 21:01:22.924] [INFO] ================================================================================
+[2026-04-20 21:01:22.924] [INFO] 
+[2026-04-20 21:01:22.927] [INFO] 
+[2026-04-20 21:01:22.927] [INFO] ================================================================================
+[2026-04-20 21:01:22.927] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_empty_account
+[2026-04-20 21:01:22.927] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:22.935] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:01:22.935] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:22.935] [DEBUG]   [请求体 / Payload] {'phone': '', 'password': '123456'}
+[2026-04-20 21:01:23.068] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:23.068] [DEBUG]   [响应体 / Body] {"code": 500, "message": "账号或密码错误"}
+[2026-04-20 21:01:23.069] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:01:23.069] [INFO] [断言 / Assertion] 响应消息 / Response Message: 通过 / Passed
+[2026-04-20 21:01:23.073] [INFO] [测试失败 / Test Failed] test_login_password_empty_account (0.146s)
+[2026-04-20 21:01:23.074] [INFO] ================================================================================
+[2026-04-20 21:01:23.074] [INFO] 
+[2026-04-20 21:01:23.083] [INFO] 
+[2026-04-20 21:01:23.083] [INFO] ================================================================================
+[2026-04-20 21:01:23.083] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_empty_password
+[2026-04-20 21:01:23.083] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:01:23.166] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:01:23.168] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:01:23.168] [DEBUG]   [请求体 / Payload] {'phone': '13205562371', 'password': ''}
+[2026-04-20 21:01:23.294] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:01:23.295] [DEBUG]   [响应体 / Body] {"code": 1000, "data": null, "message": "success"}
+[2026-04-20 21:01:23.295] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 失败 / Failed
+[2026-04-20 21:01:23.295] [INFO]   [期望值 / Expected] 500
+[2026-04-20 21:01:23.295] [INFO]   [实际值 / Actual] 1000
+[2026-04-20 21:01:23.302] [INFO] [测试失败 / Test Failed] test_login_password_empty_password (0.219s)
+[2026-04-20 21:01:23.303] [INFO] ================================================================================
+[2026-04-20 21:01:23.303] [INFO] 
+[2026-04-20 21:01:23.305] [INFO] ################################################################################
+[2026-04-20 21:01:23.305] [INFO] # [测试文件结束 / Test File End] Test Session
+[2026-04-20 21:01:23.305] [INFO] ################################################################################
+[2026-04-20 21:01:23.305] [INFO] 
+[2026-04-20 21:04:53.455] [INFO] 
+[2026-04-20 21:04:53.456] [INFO] ################################################################################
+[2026-04-20 21:04:53.456] [INFO] # [测试文件 / Test File] Test Session
+[2026-04-20 21:04:53.456] [INFO] ################################################################################
+[2026-04-20 21:04:53.496] [INFO] 
+[2026-04-20 21:04:53.496] [INFO] ================================================================================
+[2026-04-20 21:04:53.496] [INFO] [测试开始 / Test Start] test_user_address - test_add_address_success
+[2026-04-20 21:04:53.496] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:53.636] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/add
+[2026-04-20 21:04:53.636] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:53.636] [DEBUG]   [请求体 / Payload] {'contact': '测试联系人', 'phone': '13800138000', 'province': '江苏省', 'city': '南京市', 'district': '鼓楼区', 'address': '测试街道123号', 'isDefault': False}
+[2026-04-20 21:04:53.778] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:53.778] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"id": 1424}, "message": "success"}
+[2026-04-20 21:04:53.778] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:04:53.779] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.id]: 通过 / Passed
+[2026-04-20 21:04:53.781] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/delete
+[2026-04-20 21:04:53.781] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:53.781] [DEBUG]   [请求体 / Payload] {'id': 1424}
+[2026-04-20 21:04:53.811] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:53.812] [DEBUG]   [响应体 / Body] {"code": 500, "message": "ids 参数错误"}
+[2026-04-20 21:04:53.813] [INFO] [测试失败 / Test Failed] test_add_address_success (0.317s)
+[2026-04-20 21:04:53.813] [INFO] ================================================================================
+[2026-04-20 21:04:53.813] [INFO] 
+[2026-04-20 21:04:53.817] [INFO] 
+[2026-04-20 21:04:53.817] [INFO] ================================================================================
+[2026-04-20 21:04:53.817] [INFO] [测试开始 / Test Start] test_user_address - test_add_address_missing_contact
+[2026-04-20 21:04:53.817] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:53.824] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/add
+[2026-04-20 21:04:53.824] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:53.824] [DEBUG]   [请求体 / Payload] {'phone': '13800138000', 'province': '江苏省', 'city': '南京市', 'district': '鼓楼区', 'address': '测试街道123号', 'isDefault': False}
+[2026-04-20 21:04:53.934] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:53.934] [DEBUG]   [响应体 / Body] {"code": 1001, "message": "请求方式不正确或服务出现异常"}
+[2026-04-20 21:04:53.934] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:04:53.936] [INFO] [测试失败 / Test Failed] test_add_address_missing_contact (0.118s)
+[2026-04-20 21:04:53.936] [INFO] ================================================================================
+[2026-04-20 21:04:53.936] [INFO] 
+[2026-04-20 21:04:53.938] [INFO] 
+[2026-04-20 21:04:53.938] [INFO] ================================================================================
+[2026-04-20 21:04:53.938] [INFO] [测试开始 / Test Start] test_user_address - test_get_address_page
+[2026-04-20 21:04:53.938] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:53.943] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/page
+[2026-04-20 21:04:53.943] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:53.943] [DEBUG]   [请求体 / Payload] {'page': 1, 'size': 10}
+[2026-04-20 21:04:54.062] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.063] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"list": [{"id": 1422, "createTime": "2026-04-20 21:01:22", "updateTime": "2026-04-20 21:01:22", "userId": 320, "contact": "更新后的联系人", "phone": "13900139000", "province": "江苏省", "city": "南京市", "district": "玄武区", "address": "更新后的地址456号", "isDefault": true}, {"id": 1424, "createTime": "2026-04-20 21:04:53", "updateTime": "2026-04-20 21:04:53", "userId": 320, "contact": "测试联系人", "phone": "13800138000", "province": "江苏省", "city": "南京市", "district": "鼓楼区", "address": "测试街道123号", "isDefault": false}, {"id": 1421, "createTime": "2026-04-20 21:01:21", "updateTime": "2026-04-20 21:01:22", "userId": 320, "contact": "测试联系人", "phone": "13800138000", "province": "江苏省", "city": "南京市", "district": "鼓楼区", "address": "测试街道123号", "isDefault": false}, {"id": 391, "createTime": "2026-01-16 16:42:33", "updateTime": "2026-04-20 21:01:22", "userId": 320, "contact": "测试用户", "phone": "13800138000", "province": "广东省", "city": "广州市", "district": "天河区", "address": "天河路1号", "isDefault": false}, {"id": 136, "createTime": "2026-01-06 16:43:54", "updateTime": "2026-04-20 21:01:22", "userId": 320, "contact": "Joker", "phone": "18666666666", "province": "安徽省", "city": "滁州市", "district": "凤阳县", "address": "我是详细地址", "isDefault": false}], "pagination": {"total": 5, "size": 10, "page": 1}}, "message": "success"}
+[2026-04-20 21:04:54.063] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:04:54.063] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.list]: 通过 / Passed
+[2026-04-20 21:04:54.063] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.pagination.total]: 通过 / Passed
+[2026-04-20 21:04:54.065] [INFO] [测试失败 / Test Failed] test_get_address_page (0.127s)
+[2026-04-20 21:04:54.065] [INFO] ================================================================================
+[2026-04-20 21:04:54.065] [INFO] 
+[2026-04-20 21:04:54.067] [INFO] 
+[2026-04-20 21:04:54.067] [INFO] ================================================================================
+[2026-04-20 21:04:54.067] [INFO] [测试开始 / Test Start] test_user_address - test_update_address
+[2026-04-20 21:04:54.067] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:54.076] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/add
+[2026-04-20 21:04:54.076] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.076] [DEBUG]   [请求体 / Payload] {'contact': '测试联系人', 'phone': '13800138000', 'province': '江苏省', 'city': '南京市', 'district': '鼓楼区', 'address': '测试街道123号', 'isDefault': False}
+[2026-04-20 21:04:54.212] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.212] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"id": 1425}, "message": "success"}
+[2026-04-20 21:04:54.213] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/update
+[2026-04-20 21:04:54.213] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.213] [DEBUG]   [请求体 / Payload] {'contact': '更新后的联系人', 'phone': '13900139000', 'province': '江苏省', 'city': '南京市', 'district': '玄武区', 'address': '更新后的地址456号', 'isDefault': True, 'id': 1425}
+[2026-04-20 21:04:54.258] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.258] [DEBUG]   [响应体 / Body] {"code": 1000, "message": "success"}
+[2026-04-20 21:04:54.258] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:04:54.260] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/delete
+[2026-04-20 21:04:54.260] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.260] [DEBUG]   [请求体 / Payload] {'id': 1425}
+[2026-04-20 21:04:54.293] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.293] [DEBUG]   [响应体 / Body] {"code": 500, "message": "ids 参数错误"}
+[2026-04-20 21:04:54.294] [INFO] [测试失败 / Test Failed] test_update_address (0.227s)
+[2026-04-20 21:04:54.294] [INFO] ================================================================================
+[2026-04-20 21:04:54.294] [INFO] 
+[2026-04-20 21:04:54.296] [INFO] 
+[2026-04-20 21:04:54.296] [INFO] ================================================================================
+[2026-04-20 21:04:54.296] [INFO] [测试开始 / Test Start] test_user_address - test_delete_address
+[2026-04-20 21:04:54.296] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:54.302] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/add
+[2026-04-20 21:04:54.302] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.302] [DEBUG]   [请求体 / Payload] {'contact': '测试联系人', 'phone': '13800138000', 'province': '江苏省', 'city': '南京市', 'district': '鼓楼区', 'address': '测试街道123号', 'isDefault': False}
+[2026-04-20 21:04:54.418] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.419] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"id": 1426}, "message": "success"}
+[2026-04-20 21:04:54.419] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/address/delete
+[2026-04-20 21:04:54.419] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.419] [DEBUG]   [请求体 / Payload] {'ids': [1426]}
+[2026-04-20 21:04:54.463] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.463] [DEBUG]   [响应体 / Body] {"code": 1000, "message": "success"}
+[2026-04-20 21:04:54.463] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:04:54.465] [INFO] [测试失败 / Test Failed] test_delete_address (0.168s)
+[2026-04-20 21:04:54.465] [INFO] ================================================================================
+[2026-04-20 21:04:54.465] [INFO] 
+[2026-04-20 21:04:54.467] [INFO] 
+[2026-04-20 21:04:54.467] [INFO] ================================================================================
+[2026-04-20 21:04:54.467] [INFO] [测试开始 / Test Start] test_user_info - test_get_user_info_success
+[2026-04-20 21:04:54.467] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:54.470] [INFO] [请求 / Request] GET https://mall.dusksnow.top/app/user/info/person
+[2026-04-20 21:04:54.470] [DEBUG]   [请求头 / Headers] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.584] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.584] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"unionid": null, "avatarUrl": null, "nickName": "01zFoOHR", "phone": "13205562371", "gender": 0, "status": 1, "loginType": "0", "qqOpenId": null, "id": 320, "createTime": "2026-01-05 16:33:17", "updateTime": "2026-01-05 16:33:17"}, "message": "success"}
+[2026-04-20 21:04:54.584] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:04:54.584] [INFO] [断言 / Assertion] 响应消息 / Response Message: 通过 / Passed
+[2026-04-20 21:04:54.584] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.id]: 通过 / Passed
+[2026-04-20 21:04:54.584] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.phone]: 通过 / Passed
+[2026-04-20 21:04:54.584] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.nickName]: 通过 / Passed
+[2026-04-20 21:04:54.584] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.avatarUrl]: 通过 / Passed
+[2026-04-20 21:04:54.585] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.gender]: 通过 / Passed
+[2026-04-20 21:04:54.585] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.status]: 通过 / Passed
+[2026-04-20 21:04:54.585] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.loginType]: 通过 / Passed
+[2026-04-20 21:04:54.585] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.createTime]: 通过 / Passed
+[2026-04-20 21:04:54.585] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.updateTime]: 通过 / Passed
+[2026-04-20 21:04:54.586] [INFO] [测试失败 / Test Failed] test_get_user_info_success (0.119s)
+[2026-04-20 21:04:54.586] [INFO] ================================================================================
+[2026-04-20 21:04:54.586] [INFO] 
+[2026-04-20 21:04:54.588] [INFO] 
+[2026-04-20 21:04:54.588] [INFO] ================================================================================
+[2026-04-20 21:04:54.588] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_success
+[2026-04-20 21:04:54.588] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:54.593] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:04:54.593] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.593] [DEBUG]   [请求体 / Payload] {'phone': '13205562371', 'password': '123456'}
+[2026-04-20 21:04:54.703] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.703] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzkyODIyOTQsImNyZWF0ZWQiOjE3NzY2OTAyOTQsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozMjAsImlzUmVmcmVzaCI6ZmFsc2V9.Ppf5RmOI3Fo99jR3uUABsze-0bm9lNycHIb4jcBaJt0", "expire": 2592000, "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3ODQ0NjYyOTQsImNyZWF0ZWQiOjE3NzY2OTAyOTQsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozMjAsImlzUmVmcmVzaCI6dHJ1ZX0.e0wqku3iwXadMXgbTbP5GzcuKQRQWT2MTPfK-20icBY", "refreshExpire": 7776000}, "message": "success"}
+[2026-04-20 21:04:54.703] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:04:54.703] [INFO] [断言 / Assertion] 响应消息 / Response Message: 通过 / Passed
+[2026-04-20 21:04:54.704] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.token]: 通过 / Passed
+[2026-04-20 21:04:54.704] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.expire]: 通过 / Passed
+[2026-04-20 21:04:54.704] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.refreshToken]: 通过 / Passed
+[2026-04-20 21:04:54.704] [INFO] [断言 / Assertion] 字段存在 / Field Exists [data.refreshExpire]: 通过 / Passed
+[2026-04-20 21:04:54.705] [INFO] [测试失败 / Test Failed] test_login_password_success (0.117s)
+[2026-04-20 21:04:54.705] [INFO] ================================================================================
+[2026-04-20 21:04:54.705] [INFO] 
+[2026-04-20 21:04:54.709] [INFO] 
+[2026-04-20 21:04:54.709] [INFO] ================================================================================
+[2026-04-20 21:04:54.709] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_user_not_exist
+[2026-04-20 21:04:54.710] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:54.718] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:04:54.718] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.718] [DEBUG]   [请求体 / Payload] {'phone': '19999999999', 'password': '123456'}
+[2026-04-20 21:04:54.838] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.839] [DEBUG]   [响应体 / Body] {"code": 1000, "data": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzkyODIyOTQsImNyZWF0ZWQiOjE3NzY2OTAyOTQsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozNzgsImlzUmVmcmVzaCI6ZmFsc2V9.jee9zoB131mX72IDP1b1RuTY6y8zHoyK5dVkQ4OwwPs", "expire": 2592000, "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3ODQ0NjYyOTQsImNyZWF0ZWQiOjE3NzY2OTAyOTQsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozNzgsImlzUmVmcmVzaCI6dHJ1ZX0.vjqWypkLH9vBZ7HswUaFC0F1w07P2f5zsGp2APpflDg", "refreshExpire": 7776000}, "message": "success"}
+[2026-04-20 21:04:54.839] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 失败 / Failed
+[2026-04-20 21:04:54.839] [INFO]   [期望值 / Expected] 1001
+[2026-04-20 21:04:54.839] [INFO]   [实际值 / Actual] 1000
+[2026-04-20 21:04:54.859] [INFO] [测试失败 / Test Failed] test_login_password_user_not_exist (0.149s)
+[2026-04-20 21:04:54.859] [INFO] ================================================================================
+[2026-04-20 21:04:54.859] [INFO] 
+[2026-04-20 21:04:54.861] [INFO] 
+[2026-04-20 21:04:54.861] [INFO] ================================================================================
+[2026-04-20 21:04:54.861] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_wrong_password
+[2026-04-20 21:04:54.861] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:54.866] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:04:54.866] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:54.866] [DEBUG]   [请求体 / Payload] {'phone': '13205562371', 'password': 'wrongpassword'}
+[2026-04-20 21:04:54.978] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:54.978] [DEBUG]   [响应体 / Body] {"code": 1000, "data": null, "message": "success"}
+[2026-04-20 21:04:54.978] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 失败 / Failed
+[2026-04-20 21:04:54.979] [INFO]   [期望值 / Expected] 1001
+[2026-04-20 21:04:54.979] [INFO]   [实际值 / Actual] 1000
+[2026-04-20 21:04:54.989] [INFO] [测试失败 / Test Failed] test_login_password_wrong_password (0.128s)
+[2026-04-20 21:04:54.989] [INFO] ================================================================================
+[2026-04-20 21:04:54.989] [INFO] 
+[2026-04-20 21:04:54.992] [INFO] 
+[2026-04-20 21:04:54.992] [INFO] ================================================================================
+[2026-04-20 21:04:54.992] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_empty_account
+[2026-04-20 21:04:54.992] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:55.000] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:04:55.001] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:55.001] [DEBUG]   [请求体 / Payload] {'phone': '', 'password': '123456'}
+[2026-04-20 21:04:55.100] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:55.100] [DEBUG]   [响应体 / Body] {"code": 500, "message": "账号或密码错误"}
+[2026-04-20 21:04:55.100] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 通过 / Passed
+[2026-04-20 21:04:55.100] [INFO] [断言 / Assertion] 响应消息 / Response Message: 通过 / Passed
+[2026-04-20 21:04:55.101] [INFO] [测试失败 / Test Failed] test_login_password_empty_account (0.109s)
+[2026-04-20 21:04:55.101] [INFO] ================================================================================
+[2026-04-20 21:04:55.101] [INFO] 
+[2026-04-20 21:04:55.103] [INFO] 
+[2026-04-20 21:04:55.103] [INFO] ================================================================================
+[2026-04-20 21:04:55.103] [INFO] [测试开始 / Test Start] test_user_login - test_login_password_empty_password
+[2026-04-20 21:04:55.103] [INFO] --------------------------------------------------------------------------------
+[2026-04-20 21:04:55.124] [INFO] [请求 / Request] POST https://mall.dusksnow.top/app/user/login/password
+[2026-04-20 21:04:55.125] [DEBUG]   [请求头 / Headers] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+[2026-04-20 21:04:55.125] [DEBUG]   [请求体 / Payload] {'phone': '13205562371', 'password': ''}
+[2026-04-20 21:04:55.256] [INFO] [响应 / Response] Status: 200
+[2026-04-20 21:04:55.256] [DEBUG]   [响应体 / Body] {"code": 1000, "data": null, "message": "success"}
+[2026-04-20 21:04:55.257] [INFO] [断言 / Assertion] 响应状态码 / Response Code: 失败 / Failed
+[2026-04-20 21:04:55.257] [INFO]   [期望值 / Expected] 500
+[2026-04-20 21:04:55.257] [INFO]   [实际值 / Actual] 1000
+[2026-04-20 21:04:55.262] [INFO] [测试失败 / Test Failed] test_login_password_empty_password (0.158s)
+[2026-04-20 21:04:55.262] [INFO] ================================================================================
+[2026-04-20 21:04:55.262] [INFO] 
+[2026-04-20 21:04:55.264] [INFO] ################################################################################
+[2026-04-20 21:04:55.264] [INFO] # [测试文件结束 / Test File End] Test Session
+[2026-04-20 21:04:55.264] [INFO] ################################################################################
+[2026-04-20 21:04:55.264] [INFO] 
