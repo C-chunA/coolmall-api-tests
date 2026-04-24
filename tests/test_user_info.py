@@ -41,6 +41,7 @@ def pytest_generate_tests(metafunc):
                 metafunc.parametrize("case", cases_for_func, ids=ids)
 
 
+@pytest.mark.user
 class TestUserInfo:
     """用户信息测试类"""
     
@@ -85,6 +86,7 @@ class TestUserInfo:
             for field in case["expected"]["data_fields"]:
                 assert_response_field_exists(response, f"data.{field}")
     
+    @pytest.mark.smoke
     def test_user_info_person(self, case):
         """测试获取用户个人信息接口"""
         self._run_test(case)

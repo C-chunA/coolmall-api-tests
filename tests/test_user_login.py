@@ -41,6 +41,8 @@ def pytest_generate_tests(metafunc):
                 metafunc.parametrize("case", cases_for_func, ids=ids)
 
 
+@pytest.mark.login
+@pytest.mark.smoke
 class TestUserLogin:
     """用户登录测试类"""
     
@@ -70,6 +72,7 @@ class TestUserLogin:
             for field in case["expected"]["data_fields"]:
                 assert_response_field_exists(response, f"data.{field}")
     
+    @pytest.mark.smoke
     def test_login_password(self, case):
         """测试密码登录接口"""
         self._run_test(case)

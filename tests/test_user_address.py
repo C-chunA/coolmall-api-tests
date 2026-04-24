@@ -41,6 +41,7 @@ def pytest_generate_tests(metafunc):
                 metafunc.parametrize("case", cases_for_func, ids=ids)
 
 
+@pytest.mark.address
 class TestUserAddress:
     """收货地址测试类"""
     
@@ -100,6 +101,7 @@ class TestUserAddress:
             # 清理：无论测试成功与否，如果创建了地址，删除它
             self._cleanup_address(response)
     
+    @pytest.mark.smoke
     def test_address_add(self, case):
         """测试添加收货地址接口"""
         self._run_test(case)
