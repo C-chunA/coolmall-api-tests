@@ -1,17 +1,12 @@
 """订单流程测试（需要前置创建订单）"""
 import pytest
-from utils.request import APIRequest
+from tests.base_test import BaseAPITest
 from utils.assertions import assert_response_code, assert_response_message
 
 
 @pytest.mark.order
-class TestUserOrderFlow:
+class TestUserOrderFlow(BaseAPITest):
     """订单流程测试类"""
-    
-    @pytest.fixture(autouse=True)
-    def setup(self):
-        """测试前置"""
-        self.api = APIRequest()
     
     def _create_order(self):
         """创建订单并返回订单ID"""
