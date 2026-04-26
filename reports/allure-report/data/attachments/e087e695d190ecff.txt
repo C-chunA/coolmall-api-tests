@@ -1,0 +1,21 @@
+INFO     api_test:logger.py:67 
+INFO     api_test:logger.py:68 ================================================================================
+INFO     api_test:logger.py:69 [测试开始] test_user_order - test_order_create[创建订单-缺少addressId]
+INFO     api_test:logger.py:71 [测试内容] 测试创建订单接口
+INFO     api_test:logger.py:72 --------------------------------------------------------------------------------
+INFO     api_test:logger.py:88 [请求] POST https://mall.dusksnow.top/app/order/info/create
+DEBUG    api_test:logger.py:93   [请求头] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+DEBUG    api_test:logger.py:95   [请求体] {'data': {'remark': '测试订单', 'goodsList': [{'goodsInfo': {'id': 1, 'createTime': '2025-03-29 00:17:15', 'updateTime': '2025-03-29 23:07:48', 'typeId': 11, 'title': 'Redmi 14C', 'subTitle': '【持久续航】5160mAh 大电池', 'mainPic': 'https://example.com/pic.jpg', 'pics': ['https://example.com/pic.jpg'], 'price': 499, 'sold': 0, 'content': '', 'status': 1, 'sortNum': 0, 'specs': None}, 'spec': {'id': 5, 'createTime': '2025-03-29 00:31:19', 'updateTime': '2025-03-29 00:31:19', 'goodsId': 1, 'name': '碧波绿 4GB+64GB', 'price': 499, 'stock': 999, 'sortNum': 0, 'images': None, 'cover': ''}, 'count': 1, 'goodsId': 1}], 'couponId': None, 'title': '购买商品'}}
+INFO     api_test:logger.py:100 [响应] 状态码: 200
+DEBUG    api_test:logger.py:101   [响应体] {"code": 500, "message": "参数不能为空"}
+INFO     api_test:logger.py:107 [断言] 响应状态码 / Response Code
+INFO     api_test:logger.py:108   预期: 500
+INFO     api_test:logger.py:109   实际: 500
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:107 [断言] 响应消息 / Response Message
+INFO     api_test:logger.py:108   预期: 参数不能为空
+INFO     api_test:logger.py:109   实际: 参数不能为空
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:79 [测试通过] test_order_create[创建订单-缺少addressId] (0.109s)
+INFO     api_test:logger.py:82 ================================================================================
+INFO     api_test:logger.py:83

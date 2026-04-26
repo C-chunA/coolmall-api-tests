@@ -1,0 +1,37 @@
+INFO     api_test:logger.py:67 
+INFO     api_test:logger.py:68 ================================================================================
+INFO     api_test:logger.py:69 [测试开始] test_user_login - test_login_password[密码登录成功]
+INFO     api_test:logger.py:71 [测试内容] 测试密码登录接口
+INFO     api_test:logger.py:72 --------------------------------------------------------------------------------
+INFO     api_test:logger.py:88 [请求] POST https://mall.dusksnow.top/app/user/login/password
+DEBUG    api_test:logger.py:93   [请求头] {'Content-Type': 'application/json', 'Accept': 'application/json'}
+DEBUG    api_test:logger.py:95   [请求体] {'phone': '13205562371', 'password': '123456'}
+INFO     api_test:logger.py:100 [响应] 状态码: 200
+DEBUG    api_test:logger.py:101   [响应体] {"code": 1000, "data": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3Nzk2MDk5MTcsImNyZWF0ZWQiOjE3NzcwMTc5MTcsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozMjAsImlzUmVmcmVzaCI6ZmFsc2V9.CO6Un2Uel48kufQ_7lxO-xilpA_6s4Vd4ZD2Lggr__4", "expire": 2592000, "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3ODQ3OTM5MTcsImNyZWF0ZWQiOjE3NzcwMTc5MTcsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjozMjAsImlzUmVmcmVzaCI6dHJ1ZX0.sQHIgM2G1FoQWON4NGby2TI4Ct4Kr2Ua_MmdsgV8Tc8", "refreshExpire": 7776000}, "message": "success"}
+INFO     api_test:logger.py:107 [断言] 响应状态码 / Response Code
+INFO     api_test:logger.py:108   预期: 1000
+INFO     api_test:logger.py:109   实际: 1000
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:107 [断言] 响应消息 / Response Message
+INFO     api_test:logger.py:108   预期: success
+INFO     api_test:logger.py:109   实际: success
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:107 [断言] 字段存在 / Field Exists [data.token]
+INFO     api_test:logger.py:108   预期: 存在
+INFO     api_test:logger.py:109   实际: 存在
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:107 [断言] 字段存在 / Field Exists [data.expire]
+INFO     api_test:logger.py:108   预期: 存在
+INFO     api_test:logger.py:109   实际: 存在
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:107 [断言] 字段存在 / Field Exists [data.refreshToken]
+INFO     api_test:logger.py:108   预期: 存在
+INFO     api_test:logger.py:109   实际: 存在
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:107 [断言] 字段存在 / Field Exists [data.refreshExpire]
+INFO     api_test:logger.py:108   预期: 存在
+INFO     api_test:logger.py:109   实际: 存在
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:79 [测试通过] test_login_password[密码登录成功] (0.109s)
+INFO     api_test:logger.py:82 ================================================================================
+INFO     api_test:logger.py:83

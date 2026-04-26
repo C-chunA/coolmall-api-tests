@@ -1,0 +1,20 @@
+INFO     api_test:logger.py:67 
+INFO     api_test:logger.py:68 ================================================================================
+INFO     api_test:logger.py:69 [测试开始] test_user_order - test_order_confirm[确认收货-订单不存在]
+INFO     api_test:logger.py:71 [测试内容] 测试确认收货接口
+INFO     api_test:logger.py:72 --------------------------------------------------------------------------------
+INFO     api_test:logger.py:88 [请求] GET https://mall.dusksnow.top/app/order/info/confirm?orderId=999999
+DEBUG    api_test:logger.py:93   [请求头] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+INFO     api_test:logger.py:100 [响应] 状态码: 200
+DEBUG    api_test:logger.py:101   [响应体] {"code": 500, "message": "订单不存在"}
+INFO     api_test:logger.py:107 [断言] 响应状态码 / Response Code
+INFO     api_test:logger.py:108   预期: 500
+INFO     api_test:logger.py:109   实际: 500
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:107 [断言] 响应消息 / Response Message
+INFO     api_test:logger.py:108   预期: 订单不存在
+INFO     api_test:logger.py:109   实际: 订单不存在
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:79 [测试通过] test_order_confirm[确认收货-订单不存在] (0.111s)
+INFO     api_test:logger.py:82 ================================================================================
+INFO     api_test:logger.py:83

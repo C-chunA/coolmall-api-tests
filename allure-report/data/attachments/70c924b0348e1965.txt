@@ -1,0 +1,17 @@
+INFO     api_test:logger.py:67 
+INFO     api_test:logger.py:68 ================================================================================
+INFO     api_test:logger.py:69 [测试开始] test_user_login - test_login_password[phone为null]
+INFO     api_test:logger.py:71 [测试内容] 测试密码登录接口
+INFO     api_test:logger.py:72 --------------------------------------------------------------------------------
+INFO     api_test:logger.py:88 [请求] POST https://mall.dusksnow.top/app/user/login/password
+DEBUG    api_test:logger.py:93   [请求头] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+DEBUG    api_test:logger.py:95   [请求体] {'phone': None, 'password': '123456'}
+INFO     api_test:logger.py:100 [响应] 状态码: 200
+DEBUG    api_test:logger.py:101   [响应体] {"code": 1000, "data": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3Nzk2MTY0OTEsImNyZWF0ZWQiOjE3NzcwMjQ0OTEsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjoxLCJpc1JlZnJlc2giOmZhbHNlfQ.pAmMsYg7o9JHimUvP9i4_SvIrbeSdQQijMVQDXOF214", "expire": 2592000, "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3ODQ4MDA0OTEsImNyZWF0ZWQiOjE3NzcwMjQ0OTEsInVzZXJUeXBlIjoiQVBQIiwidXNlcklkIjoxLCJpc1JlZnJlc2giOnRydWV9.CZs8Iff5yF66E_OUWKLi6oh9mFjsoHHwhiDaVfILs7c", "refreshExpire": 7776000}, "message": "success"}
+INFO     api_test:logger.py:107 [断言] 响应状态码 / Response Code
+INFO     api_test:logger.py:108   预期: 500
+INFO     api_test:logger.py:109   实际: 1000
+INFO     api_test:logger.py:110   结果: 失败
+INFO     api_test:logger.py:81 [测试失败] test_login_password[phone为null] (0.119s)
+INFO     api_test:logger.py:82 ================================================================================
+INFO     api_test:logger.py:83

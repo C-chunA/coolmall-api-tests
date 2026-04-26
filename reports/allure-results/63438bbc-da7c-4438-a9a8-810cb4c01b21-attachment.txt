@@ -1,0 +1,21 @@
+INFO     api_test:logger.py:67 
+INFO     api_test:logger.py:68 ================================================================================
+INFO     api_test:logger.py:69 [测试开始] test_user_login - test_login_password[phone为10位]
+INFO     api_test:logger.py:71 [测试内容] 测试密码登录接口
+INFO     api_test:logger.py:72 --------------------------------------------------------------------------------
+INFO     api_test:logger.py:88 [请求] POST https://mall.dusksnow.top/app/user/login/password
+DEBUG    api_test:logger.py:93   [请求头] {'Authorization': '***', 'Content-Type': 'application/json', 'Accept': 'application/json'}
+DEBUG    api_test:logger.py:95   [请求体] {'phone': '1320556237', 'password': '123456'}
+INFO     api_test:logger.py:100 [响应] 状态码: 200
+DEBUG    api_test:logger.py:101   [响应体] {"code": 500, "message": "账号或密码错误"}
+INFO     api_test:logger.py:107 [断言] 响应状态码 / Response Code
+INFO     api_test:logger.py:108   预期: 500
+INFO     api_test:logger.py:109   实际: 500
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:107 [断言] 响应消息 / Response Message
+INFO     api_test:logger.py:108   预期: 账号或密码错误
+INFO     api_test:logger.py:109   实际: 账号或密码错误
+INFO     api_test:logger.py:110   结果: 通过
+INFO     api_test:logger.py:79 [测试通过] test_login_password[phone为10位] (0.122s)
+INFO     api_test:logger.py:82 ================================================================================
+INFO     api_test:logger.py:83
