@@ -18,7 +18,7 @@ echo "========================================"
 # 生成报告
 echo ""
 echo "正在生成 Allure 报告..."
-allure generate reports/allure-results -o allure-report --clean
+allure generate reports/allure-results -o reports/allure-report --clean
 
 # 检查端口是否被占用
 echo ""
@@ -39,4 +39,4 @@ echo "报告地址: http://111.229.39.148:${PORT}"
 echo "按 Ctrl+C 停止服务"
 echo ""
 
-allure open allure-report -h 0.0.0.0 -p ${PORT}
+allure open reports/allure-report -h 0.0.0.0 -p ${PORT}
