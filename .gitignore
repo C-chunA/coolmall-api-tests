@@ -1,6 +1,11 @@
 # 测试报告和日志
-reports/
+reports/allure-results/
+reports/allure-report/
 logs/
+
+# 保留生成的测试报告
+!reports/*.pdf
+!reports/*.html
 
 # 项目文档和脚本
 方案汇总.md

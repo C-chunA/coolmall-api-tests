@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoolMall 接口自动化测试报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #1890ff;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #262626;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #1890ff;
+        }
+        h3 {
+            color: #444;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .meta-info {
+            background: #f6f8fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+        .meta-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .meta-info td {
+            padding: 8px 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .meta-info td:first-child {
+            width: 150px;
+            color: #666;
+            font-weight: 500;
+        }
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+        }
+        .card.total { border-top: 4px solid #1890ff; }
+        .card.passed { border-top: 4px solid #52c41a; }
+        .card.failed { border-top: 4px solid #ff4d4f; }
+        .card.rate { border-top: 4px solid #faad14; }
+        .card-value {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .card.total .card-value { color: #1890ff; }
+        .card.passed .card-value { color: #52c41a; }
+        .card.failed .card-value { color: #ff4d4f; }
+        .card.rate .card-value { color: #faad14; }
+        .card-label {
+            color: #666;
+            font-size: 14px;
+        }
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        table.data-table th {
+            background: #fafafa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e8e8e8;
+            color: #262626;
+        }
+        table.data-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        table.data-table tr:hover {
+            background: #f6f8fa;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .status-passed {
+            background: #f6ffed;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+        .status-failed {
+            background: #fff2f0;
+            color: #ff4d4f;
+            border: 1px solid #ffa39e;
+        }
+        .defect-section {
+            background: #fff2f0;
+            border: 1px solid #ffa39e;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .defect-title {
+            color: #cf1322;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .defect-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .defect-list li {
+            margin: 8px 0;
+            color: #595959;
+        }
+        .recommendation {
+            background: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .recommendation-title {
+            color: #096dd9;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .code-block {
+            background: #f6f8fa;
+            border: 1px solid #e8e8e8;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #f5f5f5;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 30px;
+        }
+        .progress-passed {
+            background: #52c41a;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .progress-failed {
+            background: #ff4d4f;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e8e8e8;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CoolMall 接口自动化测试报告</h1>
+        
+        <div class="meta-info">
+            <table>
+                <tr><td>项目名称</td><td>CoolMall API 自动化测试</td></tr>
+                <tr><td>基础 URL</td><td>https://mall.dusksnow.top</td></tr>
+                <tr><td>测试时间</td><td>2026-05-11 09:36:09</td></tr>
+                <tr><td>执行时长</td><td>17.65 秒</td></tr>
+                <tr><td>测试人员</td><td>纯纯</td></tr>
+                <tr><td>报告类型</td><td>完整测试报告（内部评审）</td></tr>
+            </table>
+        </div>
+
+        <h2>一、测试执行概况</h2>
+        
+        <div class="summary-cards">
+            <div class="card total">
+                <div class="card-label">总用例数</div>
+                <div class="card-value">100</div>
+            </div>
+            <div class="card passed">
+                <div class="card-label">通过</div>
+                <div class="card-value">69</div>
+            </div>
+            <div class="card failed">
+                <div class="card-label">失败</div>
+                <div class="card-value">31</div>
+            </div>
+            <div class="card rate">
+                <div class="card-label">通过率</div>
+                <div class="card-value">69%</div>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-passed" style="width: 69%;">69% 通过 (69)</div>
+            <div class="progress-failed" style="width: 31%;">31% 失败 (31)</div>
+        </div>
+
+        <h2>二、测试环境配置</h2>
+        <div class="section">
+            <table class="data-table">
+                <tr><th>配置项</th><th>配置值</th></tr>
+                <tr><td>测试框架</td><td>pytest + requests + allure</td></tr>
+                <tr><td>编程语言</td><td>Python 3.8+</td></tr>
+                <tr><td>测试数据</td><td>YAML 文件</td></tr>
+                <tr><td>测试账号</td><td>13205562371 / 123456</td></tr>
+                <tr><td>认证方式</td><td>JWT Token</td></tr>
+            </table>
+        </div>
+
+        <h2>三、模块测试统计</h2>
+        <div class="section">
+            <table class="data-table">
+                <tr><th>模块</th><th>用例数</th><th>通过</th><th>失败</th><th>通过率</th><th>状态</th></tr>
+                <tr><td>用户登录 (test_user_login)</td><td>10</td><td>2</td><td>8</td><td>20%</td><td><span class="status-badge status-failed">需优化</span></td></tr>
+                <tr><td>用户信息 (test_user_info)</td><td>4</td><td>1</td><td>3</td><td>25%</td><td><span class="status-badge status-failed">需优化</span></td></tr>
+                <tr><td>收货地址 (test_user_address)</td><td>19</td><td>8</td><td>11</td><td>42%</td><td><span class="status-badge status-failed">需优化</span></td></tr>
+                <tr><td>订单管理 (test_user_order)</td><td>15</td><td>12</td><td>3</td><td>80%</td><td><span class="status-badge status-passed">良好</span></td></tr>
+                <tr><td>订单流程 (test_user_order_flow)</td><td>8</td><td>8</td><td>0</td><td>100%</td><td><span class="status-badge status-passed">优秀</span></td></tr>
+                <tr><td>订单状态流转 (test_order_status_flow)</td><td>10</td><td>8</td><td>2</td><td>80%</td><td><span class="status-badge status-passed">良好</span></td></tr>
+                <tr><td>商品评价 (test_goods_comment)</td><td>34</td><td>30</td><td>4</td><td>88%</td><td><span class="status-badge status-passed">良好</span></td></tr>
+            </table>
+        </div>
+
+        <h2>四、接口缺陷清单</h2>
+        <div class="section">
+            <div class="defect-section">
+                <div class="defect-title">🔴 严重缺陷（接口未做参数校验）</div>
+                <ol class="defect-list">
+                    <li><strong>登录接口异常处理缺失</strong> - 用户不存在、密码错误、参数为空/null时返回 code=1000（成功），应返回 code=500</li>
+                    <li><strong>收货地址参数校验缺失</strong> - 必填字段（联系人、手机号、地址等）为空/null时仍可创建成功</li>
+                    <li><strong>订单创建数量校验缺失</strong> - 商品数量为负数时仍能成功创建订单</li>
+                    <li><strong>商品评价评分校验缺失</strong> - starCount 为 0、6、-1 等非法值时未返回错误</li>
+                </ol>
+            </div>
+            
+            <div class="defect-section">
+                <div class="defect-title">🟡 一般缺陷（响应不符合预期）</div>
+                <ol class="defect-list">
+                    <li><strong>订单统计接口</strong> - 传入无效 code 参数返回 code=1001，与文档定义不符</li>
+                    <li><strong>确认收货接口</strong> - 错误提示信息不匹配，返回"非法操作"而非"订单状态不允许确认收货"</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2>五、失败用例详细分析</h2>
+        <div class="section">
+            <h3>5.1 登录模块失败用例</h3>
+            <table class="data-table">
+                <tr><th>用例名称</th><th>预期结果</th><th>实际结果</th><th>缺陷类型</th></tr>
+                <tr><td>用户不存在</td><td>code=500</td><td>code=1000, token返回</td><td>接口缺陷</td></tr>
+                <tr><td>密码错误</td><td>code=500</td><td>code=1000, token返回</td><td>接口缺陷</td></tr>
+                <tr><td>密码为空</td><td>code=500</td><td>code=1000, token返回</td><td>接口缺陷</td></tr>
+                <tr><td>phone为null</td><td>code=500</td><td>code=1000, token返回</td><td>接口缺陷</td></tr>
+                <tr><td>password为null</td><td>code=500</td><td>code=1000, token返回</td><td>接口缺陷</td></tr>
+                <tr><td>缺少phone字段</td><td>code=500</td><td>code=1000, token返回</td><td>接口缺陷</td></tr>
+                <tr><td>缺少password字段</td><td>code=500</td><td>code=1000, token返回</td><td>接口缺陷</td></tr>
+            </table>
+
+            <h3>5.2 收货地址模块失败用例</h3>
+            <table class="data-table">
+                <tr><th>用例名称</th><th>预期结果</th><th>实际结果</th><th>缺陷类型</th></tr>
+                <tr><td>缺少是否默认</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>联系人为空</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>手机号为空</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>省份为空</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>城市为空</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>区县为空</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>详细地址为空</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>是否默认为null</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>手机号10位</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>手机号含字母</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>isDefault传字符串</td><td>code=1001</td><td>code=1000, 创建成功</td><td>接口缺陷</td></tr>
+            </table>
+
+            <h3>5.3 订单模块失败用例</h3>
+            <table class="data-table">
+                <tr><th>用例名称</th><th>预期结果</th><th>实际结果</th><th>缺陷类型</th></tr>
+                <tr><td>商品数量为负数</td><td>code=1001</td><td>code=1000, 订单创建成功</td><td>接口缺陷</td></tr>
+                <tr><td>查询用户订单统计</td><td>code=1000</td><td>code=1001, Invalid code: 99</td><td>接口缺陷</td></tr>
+                <tr><td>确认收货-订单状态不允许</td><td>message="订单状态不允许确认收货"</td><td>message="非法操作"</td><td>文案不符</td></tr>
+            </table>
+
+            <h3>5.4 商品评价模块失败用例</h3>
+            <table class="data-table">
+                <tr><th>用例名称</th><th>预期结果</th><th>实际结果</th><th>缺陷类型</th></tr>
+                <tr><td>starCount=0</td><td>返回错误</td><td>code=1000, 评价成功</td><td>接口缺陷</td></tr>
+                <tr><td>starCount=6</td><td>返回错误</td><td>code=1000, 评价成功</td><td>接口缺陷</td></tr>
+                <tr><td>starCount=-1</td><td>返回错误</td><td>code=1000, 评价成功</td><td>接口缺陷</td></tr>
+            </table>
+        </div>
+
+        <h2>六、测试覆盖率分析</h2>
+        <div class="section">
+            <table class="data-table">
+                <tr><th>覆盖类型</th><th>覆盖情况</th><th>说明</th></tr>
+                <tr><td>功能覆盖</td><td>7个模块</td><td>登录、用户信息、收货地址、订单管理、订单流程、订单状态流转、商品评价</td></tr>
+                <tr><td>正常场景</td><td>✅ 已覆盖</td><td>所有模块的正常业务流程均已测试</td></tr>
+                <tr><td>异常场景</td><td>✅ 已覆盖</td><td>参数校验、边界值、无效数据等异常场景已测试</td></tr>
+                <tr><td>边界值</td><td>✅ 已覆盖</td><td>空值、null、超长字符串、负数等边界情况已测试</td></tr>
+                <tr><td>安全测试</td><td>⚠️ 部分覆盖</td><td>Token校验、权限控制已测试，SQL注入待补充</td></tr>
+            </table>
+        </div>
+
+        <h2>七、风险评估与建议</h2>
+        <div class="section">
+            <div class="recommendation">
+                <div class="recommendation-title">🎯 给开发团队的建议</div>
+                <ol>
+                    <li><strong>优先修复登录接口</strong> - 当前异常参数返回 token，存在严重安全隐患</li>
+                    <li><strong>完善参数校验机制</strong> - 收货地址、订单创建等接口需增加必填字段校验</li>
+                    <li><strong>统一错误码定义</strong> - 确保异常场景返回符合文档定义的错误码</li>
+                    <li><strong>修复评价评分校验</strong> - starCount 应限制在 1-5 范围内</li>
+                </ol>
+            </div>
+            
+            <div class="recommendation">
+                <div class="recommendation-title">📋 给测试团队的建议</div>
+                <ol>
+                    <li><strong>补充安全测试</strong> - 增加 SQL 注入、XSS、越权访问等安全测试用例</li>
+                    <li><strong>性能测试</strong> - 对接口进行压力测试，评估系统承载能力</li>
+                    <li><strong>持续集成</strong> - 将测试框架接入 CI/CD 流程，实现自动化回归</li>
+                    <li><strong>覆盖率提升</strong> - 继续开发剩余 13 个模块的测试用例</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2>八、附录</h2>
+        <div class="section">
+            <h3>8.1 测试用例设计方法</h3>
+            <ul>
+                <li><strong>等价类划分</strong> - 将输入数据划分为有效/无效等价类</li>
+                <li><strong>边界值分析</strong> - 测试边界及边界附近的值</li>
+                <li><strong>参数校验矩阵</strong> - 每个必填字段 × 缺失/空值/null/格式错误</li>
+                <li><strong>场景法</strong> - 按业务流程设计完整测试场景</li>
+            </ul>
+
+            <h3>8.2 相关资源</h3>
+            <ul>
+                <li>接口文档：https://coolmall.apifox.cn/</li>
+                <li>Allure报告：http://111.229.39.148:8889</li>
+                <li>GitHub仓库：https://github.com/C-chunA/coolmall-api-tests</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>本报告由 CoolMall 接口自动化测试框架生成</p>
+            <p>生成时间：2026-05-11 09:41:00</p>
+        </div>
+    </div>
+</body>
+</html>
